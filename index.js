@@ -1,21 +1,28 @@
-var time = new Date();
-$("#time").html(time.toLocaleTimeString());
+function new_clock() {
+  clock = new Date();
+  hour = clock.getHours();
+  if (hour < 10) {
+    hour = "0" + hours;
+  }
+  minutes = clock.getMinutes();
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  seconds = clock.getSeconds();
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
 
-// setTimeout(function () {
-//   $(".mics-content").removeClass(".animate__zoomOut");
-// });
+  print_clock = hour + " : " + minutes + " : " + seconds;
 
-$(".dropdown-menu").click(function (e) {
-  e.stopPropagation();
-});
+  $("#time").html(print_clock);
 
-$("#slider").roundSlider({
-  sliderType: "min-range",
-  handleShape: "round",
-  width: 30,
-  radius: 100,
-  value: 45,
-});
+  setTimeout(new_clock, 1000);
+}
+
+setTimeout(new_clock, 1000);
+
+
 
 // VOLUME Slider
 
